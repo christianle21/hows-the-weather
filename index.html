@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer></script>
+    <script src="./script.js" defer></script>
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <div class="navbar bg-info d-flex justify-content-center">
+        <h1 class="text-center">Weather Dashboard</h1>
+    </div>
+
+    <!-- Sidebar area for the searchbar that provides a list of previously searched cities -->
+    <div class="container row col-12 mx-2">
+        <aside id="sidebar" class="sm-3 md-3 lg-2">
+            <h4>Search for a City:</h4>
+            <form id="citySearch" class="col-12 row my-3" onsubmit="forecastWeather(event)"> 
+                <input type="text" id="cityInput" class="col-9">
+                <button class="btn btn-info btn-square col-3" type="submit" id="search"><span class="fas fa-search"></span></button>
+            </form>
+            <h5>Previously Searched Cities:</h5>
+            <div id="searchHistory">
+                <ul id="searchList"></ul>        
+            </div>
+        </aside>
+
+        <!-- Displays the screen with the main dashboard and cards -->
+        <main class="col sm-9 md-9 lg-10 ml-3">
+
+            <!-- Container for all the items with today's weather information for whatever city you search for-->
+            <section id="detailCont" class="d-flex flex-column border col-12 my-3">
+                <h3><span id="city"></span> <span id="date"></span></h3>
+                <h4 id="dayIcon"></h4>
+                <p>Temp: <span id="temp"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>UV Index: <span id="uvi"></span></p>
+            </section>
+
+            <!-- Cards with the forecast for the next five days -->
+            <!-- Each card is filled from the Javascript -->
+            <section id="cardCont">
+                <h4>5-Day Forecast:</h4>
+                <div id="5day" class="row col-12">
+                    <div class="card lg-2 md-4 sm-6 mr-3 p-3 bg-info text-light justify-content-center">
+                        <h5 class="card-title text-center" id="card1Hdr"></h5>
+                        <p class="card-text text-center"><span id="card1Icon"></span></p>
+                        <p class="card-text text-center">Temp: <span id="card1Temp"></span></p>
+                        <p class="card-text text-center">Wind: <span id="card1Wind"></span></p>
+                        <p class="card-text text-center">Humidity: <span id="card1Humidity"></span></p>
+                    </div>
+                    <div class="card lg-2 md-4 sm-6 mx-3 p-3 bg-info text-light justify-content-center">
+                        <h5 class="card-title text-center" id="card2Hdr"></h5>
+                        <p class="card-text text-center"><span id="card2Icon"></span></p>
+                        <p class="card-text text-center">Temp: <span id="card2Temp"></span></p>
+                        <p class="card-text text-center">Wind: <span id="card2Wind"></span></p>
+                        <p class="card-text text-center">Humidity: <span id="card2Humidity"></span></p>
+                    </div>
+                    <div class="card lg-2 md-4 sm-6 mx-3 p-3 bg-info text-light justify-content-center">
+                        <h5 class="card-title text-center" id="card3Hdr"></h5>
+                        <p class="card-text text-center"><span id="card3Icon"></span></p>
+                        <p class="card-text text-center">Temp: <span id="card3Temp"></span></p>
+                        <p class="card-text text-center">Wind: <span id="card3Wind"></span></p>
+                        <p class="card-text text-center">Humidity: <span id="card3Humidity"></span></p>
+                    </div>
+                    <div class="card lg-2 md-4 sm-6 mx-3 p-3 bg-info text-light justify-content-center">
+                        <h5 class="card-title text-center" id="card4Hdr"></h5>
+                        <p class="card-text text-center"><span id="card4Icon"></span></p>
+                        <p class="card-text text-center">Temp: <span id="card4Temp"></span></p>
+                        <p class="card-text text-center">Wind: <span id="card4Wind"></span></p>
+                        <p class="card-text text-center">Humidity: <span id="card4Humidity"></span></p>
+                    </div>
+                    <div class="card lg-2 md-4 sm-6 mx-3 p-3 bg-info text-light justify-content-center">
+                        <h5 class="card-title text-center" id="card5Hdr"></h5>
+                        <p class="card-text text-center"><span id="card5Icon"></span></p>
+                        <p class="card-text text-center">Temp: <span id="card5Temp"></span></p>
+                        <p class="card-text text-center">Wind: <span id="card5Wind"></span></p>
+                        <p class="card-text text-center">Humidity: <span id="card5Humidity"></span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+</body>
+</html>
